@@ -5,7 +5,30 @@ import React from "react";
 // }
 
 const App = () => {
-  return <h1>Hello Worldaaa</h1>;
+  const profiles = [
+    { name: "taro", age: "10" },
+    { name: "hanako", age: "5" },
+    { name: "hoge" },
+  ];
+  return (
+    <div>
+      {profiles.map((profile, index) => {
+        return <User name={profile.name} age={profile.age} key={index} />;
+      })}
+    </div>
+  );
 };
+
+const User = (props) => {
+  return (
+    <div>
+      I am {props.name}, and {props.age} years old
+    </div>
+  );
+};
+
+User.defaultProps = {
+  age: 1
+}
 
 export default App;
